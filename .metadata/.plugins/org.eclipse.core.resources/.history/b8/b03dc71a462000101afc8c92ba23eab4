@@ -1,0 +1,15 @@
+package com.flights.entity;
+
+import java.time.LocalDate;
+
+public class Booking {
+	private int id;
+	private int userId;
+	private int flightId;
+	private LocalDate bookingDate;
+
+	public Booking() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

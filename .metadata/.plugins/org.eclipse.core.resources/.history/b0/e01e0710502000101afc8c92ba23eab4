@@ -1,0 +1,16 @@
+<%@page import="com.flights.entity.Booking"%>
+<%@page import="java.util.List"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Showing Booking</title>
+</head>
+
+<body>
+<h2>Booking Details</h2>
+<h1><%List<Booking> bookings=(List<Booking>)request.getAttribute("booking");%></h1>
+</body>
+</html>

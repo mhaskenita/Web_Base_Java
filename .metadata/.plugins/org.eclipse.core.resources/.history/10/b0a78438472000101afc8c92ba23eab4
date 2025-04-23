@@ -1,0 +1,9 @@
+package com.flights.dao;
+
+public class BookingDao {
+
+	public BookingDao() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

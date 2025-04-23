@@ -1,0 +1,5 @@
+package com.flights.entity;
+
+public class User {
+
+}

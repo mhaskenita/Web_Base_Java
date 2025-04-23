@@ -1,0 +1,13 @@
+package com.flights.dao;
+
+import com.flights.entity.User;
+
+public class UserMain {
+
+	public static void main(String[] args) {
+		UserDao dao=new UserDao();
+		User user =new User();
+		System.out.println(dao.save(user));
+	}
+
+}

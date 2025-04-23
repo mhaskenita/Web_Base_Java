@@ -1,0 +1,38 @@
+package dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import entity.User;
+import util.JdbcUtil;
+
+public class UserDao {
+	private String query;
+	boolean status=false;
+	public boolean save(User user)
+	{
+		query="insert into user(user_name,user_email,user_password) values(?,?,?)";
+	
+	try(Connection con=JdbcUtil.auto_connect();
+		PreparedStatement pstmt=con.prepareStatement(query))
+	{
+		pstmt.setString(1,user.getName());
+		pstmt.setString(2,user.getEmail());
+		pstmt.setString(3,user.getPass());
+		int count=pstmt.executeUpdate();
+		if(count>0)
+		{
+			System.out.println(count+" Row Inserted!!");
+			status=true;
+		}
+		
+		
+	}
+	catch(Exception e)
+	{
+		e.printStackTrace();
+	}
+	return status;
+	}
+}

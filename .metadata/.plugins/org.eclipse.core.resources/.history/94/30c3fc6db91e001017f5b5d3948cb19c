@@ -1,0 +1,40 @@
+package service;
+
+import dao.UserDao;
+import entity.User;
+import exception.ResourceAlreadyExistsException;
+
+import java.util.Optional;
+
+public class UserService {
+    private UserDao userDao;
+    boolean status=false;
+
+    public UserService() {
+        userDao = new UserDao();
+    }
+
+    public boolean regiUser(String name, String email, String pass) {
+        Optional<User> foundUser = userDao.findAll().stream()
+                .filter(user -> user.getEmail().equalsIgnoreCase(email))
+                .findFirst();
+
+        if (foundUser.isPresent()) {
+           
+            throw new ResourceAlreadyExistsException("User already exists with this email!");
+        }
+
+        boolean isSaved=userDao.save(new User(0,name,email,pass));
+        if(isSaved)
+        {
+        	System.out.println("user Registered Successfully!!");
+        	status=true;
+        }
+        else
+        {
+        	System.out.println("Failed To Register User!!!");
+        }
+
+        return status;
+    }
+}

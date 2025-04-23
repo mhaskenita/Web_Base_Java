@@ -1,0 +1,5 @@
+package com.flights.service;
+
+public class ResourseAlreadyExistsException extends RuntimeException {
+
+}

@@ -1,0 +1,9 @@
+package com.flights.dao;
+
+public class FlightDao {
+
+	public FlightDao() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

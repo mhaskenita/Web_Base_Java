@@ -1,0 +1,32 @@
+package service;
+
+import dao.UserDao;
+import entity.User;
+
+import java.util.Optional;
+
+public class UserService {
+    private UserDao userDao;
+
+    public UserService() {
+        userDao = new UserDao();
+    }
+
+    public boolean regiUser(String name, String email, String pass) {
+        Optional<User> foundUser = userDao.findAll().stream()
+                .filter(user -> user.getEmail().equalsIgnoreCase(email))
+                .findFirst();
+
+        if (foundUser.isPresent()) {
+            // You can define your custom exception or use IllegalArgumentException
+            throw new IllegalArgumentException("User already exists with this email!");
+        }
+
+        User newUser = new User();
+        newUser.setName(name);
+        newUser.setEmail(email);
+        newUser.setPass(pass);
+
+        return userDao.save(newUser);
+    }
+}

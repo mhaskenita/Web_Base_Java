@@ -1,0 +1,14 @@
+package com.flights.dao;
+
+import java.time.LocalDate;
+import java.util.List;
+
+import com.flights.entity.Flight;
+
+public class FlightDao {
+
+	public List<Flight> searchFlight(String source,String dest,LocalDate date)
+	{
+		
+	}
+}

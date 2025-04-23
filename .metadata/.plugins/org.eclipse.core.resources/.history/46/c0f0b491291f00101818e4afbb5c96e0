@@ -1,0 +1,43 @@
+package com.flights.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import com.flights.entity.User;
+import com.flights.utility.AutoConnect;
+
+public class UserDao {
+  private String query;
+	public UserDao(){
+		
+	}
+	public boolean save(User user)
+	{
+		query="insert into user values(?,?,?,?)";
+		boolean status=false;
+		try(Connection con=AutoConnect.autoConnect();
+			PreparedStatement pstmt=con.prepareStatement(query)
+			)
+		{
+			pstmt.setInt(1,0);
+			pstmt.setString(2,user.getName());
+			pstmt.setString(3,user.getEmail());
+			pstmt.setString(4,user.getPassword());
+			pstmt.executeUpdate();
+			
+			
+			
+		}
+		catch(Exception e)
+		{
+			e.getMessage();
+		}
+		
+		
+		
+		return status;
+	}
+	
+
+}

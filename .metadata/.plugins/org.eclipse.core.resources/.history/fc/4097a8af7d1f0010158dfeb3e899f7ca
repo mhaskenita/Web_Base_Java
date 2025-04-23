@@ -1,0 +1,9 @@
+package com.flights.service;
+
+public class FlightService {
+
+	public FlightService() {
+		// TODO Auto-generated constructor stub
+	}
+
+}
